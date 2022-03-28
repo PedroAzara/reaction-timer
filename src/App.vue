@@ -1,21 +1,24 @@
 <template>
+  
   <h1>Ninja Reaction Timer</h1>
   <button id="botaoIniciar" @click="start" :disabled="isPlaying">PLAY</button>
   <Block  v-if="isPlaying" :delay="delay" @end="endGame" />
- 
+  
   <Results v-if="showResults" > 
     <h1 class="result">{{ score }} ms</h1>
   </Results>
+  <Github v-if="showResults"/>
 </template>
 
 <script>
 
 import Block from './components/Block.vue'
 import Results from './components/Results.vue'
+import Github from './components/Github.vue'
 export default {
   name: 'App',
   components: 
-    { Block, Results },
+    { Block, Results, Github },
   data() {
       return {
         isPlaying: false,
@@ -51,7 +54,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+ 
 }
 
 .result{
